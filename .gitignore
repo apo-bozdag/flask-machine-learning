@@ -1,1 +1,4 @@
 /.idea
+label_encoder.joblib
+model.joblib
+vectorizer.joblib
