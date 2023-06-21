@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POI Tip Tahmini</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="name">POI İsmi:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="tags">Etiketler (virgül ile ayrılmış):</label>
+        <input type="text" id="tags" name="tags"><br>
+        <label for="cuisines">Mutfaklar (virgül ile ayrılmış):</label>
+        <input type="text" id="cuisines" name="cuisines"><br>
+        <input type="submit" value="Tip Tahmini Yap">
+    </form>
+
+    {% if suggestion %}
+        <p>Tahmin Edilen Tip: {{ suggestion }}</p>
+        <form action="/" method="post">
+            <input type="hidden" name="name" value="{{ suggestion }}">
+            <input type="hidden" name="tags" value="{{ suggestion }}">
+            <input type="hidden" name="cuisines" value="{{ suggestion }}">
+            <label for="correction">Düzeltme:</label>
+            <input type="text" id="correction" name="correction">
+            <input type="submit" value="Düzelt">
+        </form>
+    {% endif %}
+</body>
+</html>
